@@ -1,22 +1,21 @@
 
-<img align="center" width="5600" height="530" src="https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/splashscreen.jpg">
+<img align="center" width="5600" height="530" src="[https://user-images.githubusercontent.com/85250007/194118593-8cae33f7-16ca-4c7a-b074-84aa5146dc68.jpg)">
 
----
 
 ## ELK-Stack-Project
 **Automated ELK Stack Deployment**
  
 The files in this repository were used to configure the network depicted below.
 
-![vNet Diagram](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Diagrams/ELK-Project-V1.jpg)
- 
+![vNet Diagram](https://user-images.githubusercontent.com/85250007/194118508-fe9b06a6-1fa4-4b54-bb0a-c77307d5b02c.png)
+
 These files have been tested and used to generate an automated ELK Stack Deployment on Azure. They can be used to either recreate the entire deployment figured below. Otherwise, select portions of the YAML files may be used to install only certain pieces of it, for example, Filebeat and Metricbeat.
 
-  - [install-elk.yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Ansible/install-elk.yml)
-  - [filebeat-config.yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Ansible/filebeat-config.yml)
-  - [filebeat-playbook.yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Ansible/filebeat-playbook.yml)
-  - [metricbeat-config.yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Ansible/metricbeat-config.yml)
-  - [metricbeat-playbook.yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Ansible/metricbeat-playbook.yml)
+  - [install-elk.yml](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/install-elk.yml)
+  - [filebeat-config.yml](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/filebeat-config.yml)
+  - [filebeat-playbook.yml]([https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/filebeat-playbook.yml))
+  - [metricbeat-config.yml](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/metricbeat-config.yml)
+  - [metricbeat-playbook.yml]([https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/metricbeat-playbook.yml))
  
 This document contains the following details:
 - Description of the Topology
