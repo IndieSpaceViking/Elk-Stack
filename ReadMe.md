@@ -1,6 +1,7 @@
 
 <img align="center" src="https://user-images.githubusercontent.com/85250007/194118593-8cae33f7-16ca-4c7a-b074-84aa5146dc68.jpg">
 
+---
 
 ## ELK-Stack-Project
 **Automated ELK Stack Deployment**
@@ -31,7 +32,8 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
 
-> What aspect of security do load balancers protect?
+<details>
+<summary> <b> What aspect of security do load balancers protect? </b> </summary>
 
 - According to [Azure security baseline for Azure Load Balancer](https://bit.ly/3AnSRPV), the load balancer's main purpose is to distribute web traffic across multiple servers. In our network, the load balancer was installed in front of the VM to 
    - protect Azure resources within virtual networks.
