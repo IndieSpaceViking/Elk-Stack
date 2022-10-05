@@ -69,6 +69,8 @@ Integrating an Elastic Stack server allows us to easily monitor the vulnerable V
 <summary> <b> What does Metricbeat record? </b> </summary>
 	
 - Metricbeat helps monitor servers by collecting metrics from the system and services running on the server so it records machine metrics and stats, such as uptime.
+
+</details>	
 	
 The configuration details of each machine may be found below.
  
