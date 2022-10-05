@@ -129,7 +129,7 @@ We will configure an ELK server within virtual network. Specifically,
 - Make sure this vNet is located in a new region and not the same region as our other VM's, which region we select is not important as long as it's a different US region than our other resources, we can also leave the rest of the settings at default.
 - In this example, that the IP Addressing has automatically created a new network space of 10.1.0.0/16. If our network is different (10.2.0.0 or 10.3.0.0) it is ok as long as we accept the default settings. Azure automatically creates a network that will work.
 
-![Create vNet](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Create%20vNet.png)  
+![Create vNet](https://user-images.githubusercontent.com/85250007/194127201-5e1e14e1-f33a-4334-a8d7-e33c361a9125.png)
 
 2. Create a Peer connection between our vNets. This will allow traffic to pass between our vNets and regions. This peer connection will make both a connection from our first vNet to our second vNet and a reverse connection from our second vNet back to our first vNet. This will allow traffic to pass in both directions.
 - Navigate to `Virtual Network` in the Azure Portal.
@@ -140,9 +140,9 @@ We will configure an ELK server within virtual network. Specifically,
 - Choose our original RedTeam vNet in the dropdown labeled `Virtual Network`.
 - Leave all other settings at their defaults.
  
-![PeeringsELKtoRed](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/ELKtoRed.png) 
+![ELKtoRed](https://user-images.githubusercontent.com/85250007/194127232-1366c4b0-e04d-44f6-a23a-2e4cde0936af.png)
  
-![PeeringsRedtoELK](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/RedtoELK.png)  
+![RedtoELK](https://user-images.githubusercontent.com/85250007/194127311-e3b379c1-2fad-40da-8e02-ba6b8977064e.png)
 
 3. Create a new Ubuntu VM in our virtual network with the following configurations:
 - The VM must have a public IP address.
@@ -160,12 +160,12 @@ We will configure an ELK server within virtual network. Specifically,
         sudo docker start goofy_wright && sudo docker attach goofy_wright
      ``` 
  
-![connect_on_newVM](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/connect_on_newVM.png)  
+![connect_on_newVM](https://user-images.githubusercontent.com/85250007/194127358-4e9cecfb-e465-4521-bf67-c82f1468f22b.png)
  
 - Copy the SSH key from the Ansible container on our jump box:
    - RUN `cat id_rsa.pub` Configure a new VM using that SSH key.
  
-![RSA](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/id_rsa.pub_on_newVM.png) 
+![id_rsa pub_on_newVM](https://user-images.githubusercontent.com/85250007/194127425-d9ce7ff7-306a-42d7-a419-294bd590bc94.png)
  
 
 #### Created an Ansible play to install and configure an ELK instance.
@@ -176,7 +176,7 @@ In this step, we have to:
 - From our Ansible container, add the new VM to Ansible's hosts file.
    - RUN `nano /etc/ansible/hosts` and put our IP with `ansible_python_interpreter=/usr/bin/python3`
 
-![hosts file editing](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/CatHosts.png)  
+![CatHosts](https://user-images.githubusercontent.com/85250007/194127472-77fa45c7-02f0-484a-9aa0-a9b37e72fde7.png)
 
 - In the below play, representing the header of the YAML file, I defined the title of my playbook based on the playbook's main goal by setting the keyword 'name:' to: "Configure Elk VM with Docker". Next, I defined the user account for the SSH connection, by setting the keyword 'remote_user:' to "sysadmin" then activated privilege escalation by setting the keyword 'become:' to "true". 
  
@@ -263,7 +263,7 @@ In this play, the ansible systemd module is used to start docker on boot, settin
         name: docker
         enabled: yes
 ```
-![Install_elk_yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Install_elk_yml.png)
+![Install_elk_yml](https://user-images.githubusercontent.com/85250007/194127616-d5d55e16-c398-4bd6-9c1c-3693f3bdfe03.png)
 
 Now we can start launching and exposing the container by run
 
@@ -273,13 +273,13 @@ ansible-playbook install-elk.yml
 
 The following screenshot displays the result of running `install-elk.yml`
 
-![Docker ELKResult output](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Install_elk_result.png)
+<img width="1267" alt="Install_elk_result" src="https://user-images.githubusercontent.com/85250007/194127656-4aa4da4d-7808-463c-bf37-834a2461cee0.png">
 
 SSH to our container: ```ssh sysadmin@10.1.0.4``` and RUN ```sudo docker ps```
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the Elastic Stack instance.
 
-![Docker InstallELK output](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/InstallELK.png)
+![InstallELK](https://user-images.githubusercontent.com/85250007/194127723-0da4e078-eaca-4edb-a149-268a42f4fa2a.png)
 
 Logging into the Elk server and manually launch the ELK container with: 
 
@@ -290,7 +290,7 @@ then ```curl http://localhost:5601/app/kibana``` does return HTML.
 
 The following screenshot displays the result of running `curl` after start ELK container
 
-![Docker curl output](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/CurlResult.png)
+<img width="1055" alt="CurlResult" src="https://user-images.githubusercontent.com/85250007/194127756-c332466f-48c7-443a-80e9-f7212beceec1.png">
 
 #### Restricted access to the new server.
 	
@@ -298,11 +298,11 @@ This step is to restrict access to the ELK VM using Azure's network security gro
 
 Go to Network Security Group to config our host IP to Kibana as follow
 
-![Docker InboundSecRules output](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Docker%20InboundSecRules%20output.png)
+![Docker InboundSecRules output](https://user-images.githubusercontent.com/85250007/194127927-628b4d08-7704-461a-bd9c-495d2b6ec7c7.png)
 
 Then try to access web browser to http://<your.ELK-VM.External.IP>:5601/app/kibana 
  
-![Access_Kibana](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Access_Kibana.png)
+<img width="1307" alt="Access_Kibana" src="https://user-images.githubusercontent.com/85250007/194127875-025dc1be-ffb2-4f81-ba02-6059673f732c.png">
 
 </details>
 
