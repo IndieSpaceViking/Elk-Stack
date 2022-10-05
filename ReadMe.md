@@ -13,9 +13,9 @@ These files have been tested and used to generate an automated ELK Stack Deploym
 
   - [install-elk.yml](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/install-elk.yml)
   - [filebeat-config.yml](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/filebeat-config.yml)
-  - [filebeat-playbook.yml]([https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/filebeat-playbook.yml))
+  - [filebeat-playbook.yml]([https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/filebeat-playbook.yml)
   - [metricbeat-config.yml](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/metricbeat-config.yml)
-  - [metricbeat-playbook.yml]([https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/metricbeat-playbook.yml))
+  - [metricbeat-playbook.yml]([https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/metricbeat-playbook.yml)
  
 This document contains the following details:
 - Description of the Topology
