@@ -464,7 +464,7 @@ To do so, I have implemented 3 tasks:
 
 #### Generating a high amount of failed SSH login attempts:
 
-To generate these attempts I intentionally tried to connect to my Web-1 web server from the Jump Box instead of connecting from my Ansible container in order to generate failed attempts (the server can't verify my private key outside of the container). All ELK Stack scripts refer to [Elk_Stack_scripts.sh](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Linux/Elk_Stack_scripts.sh)
+To generate these attempts I intentionally tried to connect to my Web-1 web server from the Jump Box instead of connecting from my Ansible container in order to generate failed attempts (the server can't verify my private key outside of the container). All ELK Stack scripts refer to [Elk_Stack_scripts.sh](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Linux/Elk_Stack_script.sh)
 
 To do so I used the following short script to automate 1000 failed SSH login attempts: 
 
