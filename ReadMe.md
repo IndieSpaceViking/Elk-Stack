@@ -329,7 +329,7 @@ These Beats allow us to collect the following information from each machine:
 
 `Filebeat`: Filebeat detects changes to the filesystem. I use it to collect system logs and more specifically, I use it to detect SSH login attempts and failed sudo escalations.
 
-We will create a [filebeat-config.yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Ansible/filebeat-config.yml) and [metricbeat-config.yml](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Ansible/metricbeat-config.yml) configuration files, after which we will create the Ansible playbook files for both of them.
+We will create a [filebeat-config.yml)](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/filebeat-config.yml) and [metricbeat-config.yml](https://github.com/IndieSpaceViking/Elk-Stack/blob/main/Ansible/metricbeat-config.yml) configuration files, after which we will create the Ansible playbook files for both of them.
 
 Once we have this file on our Ansible container, edit it as specified:
 - The username is elastic and the password is changeme.
@@ -343,8 +343,7 @@ password: "changeme"
 host: "10.1.0.4:5601"
 - Save both files filebeat-config.yml and metricbeat-config.yml into `/etc/ansible/files/`
 
-![files_FMconfig](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/files_FMconfig.png) 
- 
+ ![files_FMconfig](https://user-images.githubusercontent.com/85250007/194129543-ca92ed86-79d1-4fce-a8db-5583863c0a41.png)
  
 Next, create a new playbook that installs Filebeat & Metricbeat, and then create a playbook file, `filebeat-playbook.yml` & `metricbeat-playbook.yml`
 
@@ -383,19 +382,18 @@ RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Fileb
       enabled: yes
 ```
 
-![Filebeat_playbook](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Filebeat_playbook.png) 
+![Filebeat_playbook](https://user-images.githubusercontent.com/85250007/194129666-ebdd27eb-098c-4e76-a56b-bc7d5cf68842.png)
  
 - RUN `ansible-playbook filebeat-playbook.yml`
 
-![Filebeat_playbook_result](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Filebeat_playbook_result.png)  
+ ![Filebeat_playbook_result](https://user-images.githubusercontent.com/85250007/194129825-44448b7c-f4aa-48b9-9793-eef86128b905.png) 
 
 Verify that our playbook is completed by navigate back to the Filebeat installation page on the ELK server GUI
 
-![Filebeat_playbook_verify](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Filebeat_playbook_verify.png)
+<img width="1303" alt="Filebeat_playbook_verify" src="https://user-images.githubusercontent.com/85250007/194129785-18c9a22b-597e-4d68-b999-b6776f5d6386.png">
 	
-![Filebeat_playbook_verify1](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Filebeat_playbook_verify1.png)
+<img width="1303" alt="Filebeat_playbook_verify1" src="https://user-images.githubusercontent.com/85250007/194129759-e7ce4313-1f82-4f15-849f-63821a37c730.png">
 		
-	
 `Metricbeat`: Metricbeat detects changes in system metrics, such as CPU usage and memory usage.
 
 RUN `nano metricbeat-playbook.yml` to enable the metricbeat service on boot by Metricbeat playbook template below:
@@ -433,15 +431,15 @@ RUN `nano metricbeat-playbook.yml` to enable the metricbeat service on boot by M
       enabled: yes
 ```
 
-![Metricbeat_playbook](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Metricbeat_playbook.png)  
+![Metricbeat_playbook](https://user-images.githubusercontent.com/85250007/194129857-25409e47-05be-44f2-8353-5cc8eb9e6b2e.png)
  
 - RUN `ansible-playbook metricbeat-playbook.yml`
 
-![Metricbeat_playbook_result](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Metricbeat_playbook_result.png)  
+![Metricbeat_playbook_result](https://user-images.githubusercontent.com/85250007/194129896-f711d4a5-4532-43fb-9015-6d0ac155d8f0.png)
 
 Verify that this playbook is completed by navigate back to the Filebeat installation page on the ELK server GUI
 
-![Metricbeat_playbook_verify](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/Metricbeat_playbook_verify.png)
+<img width="1263" alt="Metricbeat_playbook_verify" src="https://user-images.githubusercontent.com/85250007/194129923-d367d8ca-45e8-4555-abf8-c65a146a800e.png">3
 
  
 </details>
@@ -475,13 +473,11 @@ To do so I used the following short script to automate 1000 failed SSH login att
 for i in {1..1000}; do ssh Web_1@10.0.0.5; done
 ```
 
-![ssh failed attempts](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/ssh%20failed%20attempts.png)
-
+![ssh failed attempts](https://user-images.githubusercontent.com/85250007/194130111-16089974-4653-46ef-a903-685167819efe.png)
 
 Next We check Kibana to see if the failed attempts were logged:
 
-
-![filebeat failed ssh attempts](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/filebeat%20failed%20ssh%20attempts.png)
+<img width="1435" alt="filebeat failed ssh attempts" src="https://user-images.githubusercontent.com/85250007/194130135-d37dbba3-dbfe-42b4-a09a-0f9b7a391a69.png">
 
 I can see that all the failed attempts were detected and sent to Kibana.
 
@@ -539,9 +535,9 @@ sudo stress --cpu 1
    - _Note: The stress program will run until we quit with Ctrl+C._
 	
 Next, view the Metrics page for that VM in Kibana and comparing 2 of web servers to see the differences in CPU usage, confirmed that `metricbeat` is capturing the increase in CPU usage due to our stress command:
-![cpu stress test results](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/cpu%20stress%20test%20results.png)
+<img width="1435" alt="cpu stress test results" src="https://user-images.githubusercontent.com/85250007/194130244-fce823e4-ddc9-475d-b360-233a28fddb4e.png">
 Another view of the CPU usage metrics Kibana collected:
-![cpu stress test results graph](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/cpu%20stress%20test%20results%20graph.png)
+<img width="1430" alt="cpu stress test results graph" src="https://user-images.githubusercontent.com/85250007/194130268-2c7e3059-1c65-4057-9071-2944a55b60e7.png">
 #### Generate a high amount of web requests to both web servers and make sure that Kibana is picking them up.
 This time we will generate a high amount of web requests directed to one of my web servers. To do so, I will use `wget` to launch a DoS attack.
 1. Log into my Jump Box Provisioner
@@ -550,13 +546,13 @@ This time we will generate a high amount of web requests directed to one of my w
         ssh sysadmin@<jump-box-provisioner>
      ``` 
 2. We need to add a new firewall rule to allow my Jump Box (10.0.0.4) to connect to my web servers over HTTP on port 80. To do so, I add a new Inbound Security Rule to Red-Team Network Security Group:
-![jump to http to webservers](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/jump%20to%20http%20to%20webservers.png)
+![jump to http to webservers](https://user-images.githubusercontent.com/85250007/194130302-4be27fc4-d095-492a-8117-5cf472e8b37d.png)
 3. Run the following command to download the file `index.html` from Web-1 VM:
    - ```bash
         wget 10.0.0.5
      ```
 Output of the command:
-![index html download](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/index%20html%20download.png)
+![index html download](https://user-images.githubusercontent.com/85250007/194130333-23740a3d-ef20-44a9-90f5-56c4d43af3dc.png)
 4. Confirm that the file has been downloaded with the `ls` command:
    - ```bash
         sysadmin@Jump-Box-Provisioner:~$ ls 
@@ -567,15 +563,15 @@ Output of the command:
         while true; do wget 10.0.0.5; done
      ```
 The result is that the `Load`, `Memory Usage` and `Network Traffic` were hit as seen below:
-![load increase DoS](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/load%20increase%20DoS.png)
+<img width="1430" alt="load increase DoS" src="https://user-images.githubusercontent.com/85250007/194130373-3c29df94-ed38-46eb-bc68-325699b05159.png">
 After stopping the `wget` command, I can see that thousands of index.html files were created (as seen below).
-![index html files](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/index%20html%20files.png)
+![index html files](https://user-images.githubusercontent.com/85250007/194130396-6882b217-0947-4215-89c1-bb928bd75179.png)
 I can use the following command to clean that up:
 ```bash
 rm *
 ```
 Now if we use `ls` again, the directory is a lot cleaner:
-![directory cleanup](https://github.com/Diablo5G/ELK-Stack-Project/blob/main/Resources/Images/directory%20cleanup.png)
+![directory cleanup](https://user-images.githubusercontent.com/85250007/194130456-1400df87-01a3-4538-82e9-d1a39cb600a4.png)
 I can also avoid the creation of the `index.html` file by adding the flag `-O` to my command so that I can specify a destination file where all the `index.html` files will be concatenated and written to.
 Since I don't want to save the `index.html` files, I will not write them to any output file but instead send them directly to a directory that doesn't save anything, i.e., `/dev/null`. 
 I use the following command to do that:
