@@ -591,8 +591,7 @@ My Elastic Stack server is now functioning and correctly monitoring my load-bala
 
 </details>
 
-	---
-
+---
 
 ### Citations and References:
 
