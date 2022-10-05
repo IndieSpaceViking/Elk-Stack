@@ -47,6 +47,8 @@ Load balancing ensures that the application will be highly available, in additio
    - maintain standard security configurations for network devices
    - document traffic configuration rules
    - use automated tools to monitor network resource configurations and detect changes
+	
+</details>
 
 > What is the advantage of a jump box?
 - A Jump Box or a "Jump Server" is a gateway on a network used to access and manage devices in different security zones. A Jump Box acts as a "bridge" between two trusted networks zones and provides a controlled way to access them. We can block the public IP address associated with the VM. It helps to improve security also prevents all Azure VM’s to expose to the public.
