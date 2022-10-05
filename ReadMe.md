@@ -588,6 +588,26 @@ while true; do for i in {5..6}; do wget -O /dev/null 10.0.0.$i; done
 ```
 Note that we need to press CTRL + C to stop the `wget` requests since I am using the `while` loop.
 My Elastic Stack server is now functioning and correctly monitoring my load-balanced exposed DVWA web application.
+
 </details>
----
+
+	---
+
+
+### Citations and References:
+
+#### General Resources:
+
+- [`elk-docker` Container Documentation](https://elk-docker.readthedocs.io/)
+- [Elastic.co: The Elastic Stack](https://www.elastic.co/elastic-stack)
+- [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html)
+- [`elk-docker` Image Documentation](https://elk-docker.readthedocs.io/#elasticsearch-logstash-kibana-elk-docker-image-documentation)
+- [Virtual Memory Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/vm-max-map-count.html#vm-max-map-count)
+- [Docker Commands Cheatsheet](https://phoenixnap.com/kb/list-of-docker-commands-cheat-sheet)
+
+#### Azure Documentation:
+
+- Azure's page on peer networks: [Network-Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
+- Peer networking in Azure How-To: [Global vNet Peering](https://azure.microsoft.com/en-ca/blog/global-vnet-peering-now-generally-available/)
+- Microsoft Support: [How to open a support ticket](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request)
 
