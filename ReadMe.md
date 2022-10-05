@@ -84,6 +84,7 @@ The configuration details of each machine may be found below.
  
 In addition to the above, Azure has provisioned a load balancer in front of all machines except for the jump box. The load balancer's targets are organized into availability zones: Web-1 + Web-2
 
+---
 
 ### Access Policies
  
